@@ -25,3 +25,13 @@ function operate(num1, operator, num2) {
         : operator === "/" ? num1 / num2
         : "";
 }
+
+const display = document.querySelector(".display");
+display.textContent = "";
+
+function updateDisplay(e) {
+    display.textContent += e.target.textContent;
+}
+
+let digits = document.querySelectorAll(".number");
+digits.forEach(digit => digit.addEventListener("click", updateDisplay))
