@@ -13,3 +13,15 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b;
 }
+
+let num1;
+let num2;
+let operator;
+
+function operate(num1, operator, num2) {
+    return operator === "+" ? num1 + num2
+        : operator === "-" ? num1 - num2
+        : operator === "*" ? num1 * num2
+        : operator === "/" ? num1 / num2
+        : "";
+}
