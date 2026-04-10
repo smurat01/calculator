@@ -30,7 +30,11 @@ function calculate() {
 }
 
 let equalTo = document.querySelector("#equal");
-equalTo.addEventListener("click", calculate)
+equalTo.addEventListener("click", () => {
+    if (num1 && operator && num2) {
+        calculate();
+    }
+})
 
 
 // Shows digits on display
