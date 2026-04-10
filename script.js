@@ -11,18 +11,26 @@ let operator;
 
 // runs the math operation
 function calculate() {
+    if (operator === "/" && num2 === "0") {
+        return display.textContent = "sneaky boi";
+    }
+
     let answer = operator === "+" ? add(+num1, +num2)
             : operator === "-" ? subtract(+num1, +num2)
             : operator === "*" ? multiply(+num1, +num2)
             : operator === "/" ? divide(+num1, +num2)
             : "error";
-    num1 = answer;
+
+    let answerRounded = Math.round(answer * 100) / 100
+    num1 = answerRounded;
     num2 = "";
-    return answer;
+    operator = "";
+    display.textContent = answerRounded;
+    return answerRounded;
 }
 
-// let equalTo = document.querySelector("#equal");
-// equalTo.addEventListener("click", operate)
+let equalTo = document.querySelector("#equal");
+equalTo.addEventListener("click", calculate)
 
 
 // Shows digits on display
@@ -43,7 +51,7 @@ operators.forEach(op => op.addEventListener("click", useOperator))
 
 function useOperator(e) {
     if(num1 !== "" && num2) {
-        display.textContent = calculate();
+        calculate();
         operator = e.target.textContent;
         display.append(operator);
     } else if(num1 !== "") {
