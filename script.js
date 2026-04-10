@@ -49,3 +49,8 @@ function useOperator(e) {
     operator = e.target.textContent;
     display.textContent += operator;
 }
+
+
+// Clears display
+const clear = document.querySelector("#c");
+clear.addEventListener("click", e => display.textContent = "")
