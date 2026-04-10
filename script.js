@@ -8,10 +8,12 @@ function divide(a, b) {return a / b}
 let num1 = "";
 let num2 = "";
 let operator;
+let answerRounded;
 
 // runs the math operation
 function calculate() {
     if (operator === "/" && num2 === "0") {
+        num1 = "";
         return display.textContent = "sneaky boi";
     }
 
@@ -21,7 +23,7 @@ function calculate() {
             : operator === "/" ? divide(+num1, +num2)
             : "error";
 
-    let answerRounded = Math.round(answer * 100) / 100
+    answerRounded = Math.round(answer * 100) / 100
     num1 = answerRounded;
     num2 = "";
     operator = "";
@@ -44,6 +46,12 @@ let digits = document.querySelectorAll(".number");
 digits.forEach(digit => digit.addEventListener("click", updateDisplay))
 
 function updateDisplay(e) {
+    if(+display.textContent === answerRounded) {
+        display.textContent = "";
+        num1 = "";
+        num2 = "";
+    }
+
     display.append(e.target.textContent);
     num2 += e.target.textContent;
 }
