@@ -8,33 +8,31 @@ function divide(a, b) {return a / b}
 let num1 = "";
 let num2 = "";
 let operator;
-let answer;
 
 // runs the math operation
-function operate() {
-    answer = operator === "+" ? add(+num1, +num2)
+function calculate() {
+    let answer = operator === "+" ? add(+num1, +num2)
             : operator === "-" ? subtract(+num1, +num2)
             : operator === "*" ? multiply(+num1, +num2)
             : operator === "/" ? divide(+num1, +num2)
             : "error";
-
-    display.textContent = answer;
-    num2 = answer;
+    num1 = answer;
+    num2 = "";
+    return answer;
 }
 
-let equalTo = document.querySelector("#equal");
-equalTo.addEventListener("click", operate)
+// let equalTo = document.querySelector("#equal");
+// equalTo.addEventListener("click", operate)
 
 
 // Shows digits on display
 const display = document.querySelector(".display");
-display.textContent = "";
 
 let digits = document.querySelectorAll(".number");
 digits.forEach(digit => digit.addEventListener("click", updateDisplay))
 
 function updateDisplay(e) {
-    display.textContent += e.target.textContent;
+    display.append(e.target.textContent);
     num2 += e.target.textContent;
 }
 
@@ -44,13 +42,25 @@ let operators = document.querySelectorAll(".operators");
 operators.forEach(op => op.addEventListener("click", useOperator))
 
 function useOperator(e) {
-    num1 = num2;
-    num2 = "";
-    operator = e.target.textContent;
-    display.textContent += operator;
+    if(num1 !== "") {
+        display.textContent = calculate();
+        operator = e.target.textContent;
+        display.append(operator);
+    } else {
+        operator = e.target.textContent;
+        display.append(operator);
+        num1 = num2;
+        num2 = "";
+    }
 }
 
 
 // Clears display
 const clear = document.querySelector("#c");
-clear.addEventListener("click", e => display.textContent = "")
+clear.addEventListener("click", e => {
+    display.textContent = "";
+    num1 = "";
+    num2 = "";
+    operator = "";
+    answer = "";
+})
