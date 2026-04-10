@@ -42,8 +42,12 @@ let operators = document.querySelectorAll(".operators");
 operators.forEach(op => op.addEventListener("click", useOperator))
 
 function useOperator(e) {
-    if(num1 !== "") {
+    if(num1 !== "" && num2) {
         display.textContent = calculate();
+        operator = e.target.textContent;
+        display.append(operator);
+    } else if(num1 !== "") {
+        display.textContent = num1;
         operator = e.target.textContent;
         display.append(operator);
     } else {
