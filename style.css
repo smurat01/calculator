@@ -1,5 +1,9 @@
+body{
+    background-color: black;
+}
+
 .container{
-    margin: auto;
+    margin: auto;    
     height: 500px;
     width: 300px;
     border: solid 3px black;
@@ -8,16 +12,19 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 15px;
+    background-color: rgb(26, 44, 44);
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .display{
-    border: solid 2px black;
     flex: 1;
     margin-bottom: 15px;
-    border-radius: 15px;
     text-align: end;
     font-size: 50px;
     padding: 5px;
+    border-radius: 25px;
+    background-color: rgba(61, 58, 58, .5);
 }
 
 .buttons{
@@ -29,7 +36,7 @@
 
 button{
     font-size: 30px;
-    border-radius: 15px;
+    border-radius: 35px;
     height: 70px;
     width: 70px;
 }
@@ -37,4 +44,21 @@ button{
 button:hover{
     border-color: orange;
     transition-duration: 300ms;
+}
+
+.operators{
+    background-color: orange;
+}
+
+.number{
+    background-color: lightgray;
+}
+
+#equal{
+    background-color: red;
+}
+
+#c,
+#del{
+    background-color: lightgreen;
 }
