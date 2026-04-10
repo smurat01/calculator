@@ -88,3 +88,19 @@ clear.addEventListener("click", e => {
     operator = "";
     answer = "";
 })
+
+
+// Backspace function
+const del = document.querySelector("#del");
+del.addEventListener("click", () => {
+    if(num2) {
+        display.textContent = display.textContent.slice(0, -1);
+        num2 = num2.slice(0, -1)
+    }else if(operator) {
+        display.textContent = display.textContent.slice(0, -1);
+        operator = operator.slice(0, -1)
+    }else{
+        display.textContent = display.textContent.slice(0, -1);
+        num1 = num1.slice(0, -1)
+    }
+})
