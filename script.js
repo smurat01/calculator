@@ -5,17 +5,17 @@ function multiply(a, b) {return a * b}
 function divide(a, b) {return a / b}
 
 // variables to hold data
-let num1;
-let num2;
+let num1 = "";
+let num2 = "";
 let operator;
 let answer;
 
 // runs the math operation
 function operate() {
-    answer = operator === "+" ? +num1 + +num2
-            : operator === "-" ? +num1 - +num2
-            : operator === "*" ? +num1 * +num2
-            : operator === "/" ? +num1 / +num2
+    answer = operator === "+" ? add(+num1, +num2)
+            : operator === "-" ? subtract(+num1, +num2)
+            : operator === "*" ? multiply(+num1, +num2)
+            : operator === "/" ? divide(+num1, +num2)
             : "error";
 
     display.textContent = answer;
@@ -35,7 +35,7 @@ digits.forEach(digit => digit.addEventListener("click", updateDisplay))
 
 function updateDisplay(e) {
     display.textContent += e.target.textContent;
-    num2 = display.textContent;
+    num2 += e.target.textContent;
 }
 
 
@@ -47,5 +47,5 @@ function useOperator(e) {
     num1 = num2;
     num2 = "";
     operator = e.target.textContent;
-    display.textContent = "";
+    display.textContent += operator;
 }
