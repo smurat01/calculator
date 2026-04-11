@@ -21,10 +21,11 @@ body{
     flex: 1;
     margin-bottom: 15px;
     text-align: end;
-    font-size: 50px;
+    font-size: 30px;
     padding: 5px;
     border-radius: 25px;
     background-color: rgba(61, 58, 58, .5);
+    overflow: auto;
 }
 
 .buttons{

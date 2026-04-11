@@ -51,9 +51,10 @@ function updateDisplay(e) {
         num1 = "";
         num2 = "";
     }
-
+    if(num2.length < 7) {
     display.append(e.target.textContent);
     num2 += e.target.textContent;
+    }
 }
 
 
