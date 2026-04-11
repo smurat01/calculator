@@ -104,3 +104,18 @@ del.addEventListener("click", () => {
         num1 = num1.slice(0, -1)
     }
 })
+
+// Add decimal point
+const dot = document.querySelector("#dot");
+dot.addEventListener("click", () => {
+    if(num2 && !num2.includes(".")) {
+        display.textContent += ".";
+        num2 += "."
+    }else if(operator) {
+        display.textContent += "0.";
+        num2 = "0."
+    }else if(num1 && !num1.includes(".")) {
+        display.textContent += ".";
+        num1 += "."
+    }
+})
