@@ -73,7 +73,7 @@ function useOperator(e) {
         display.append(operator);
     } else {
         operator = e.target.textContent;
-        display.append(operator);
+        display.textContent = operator;
         num1 = num2;
         num2 = "";
     }
